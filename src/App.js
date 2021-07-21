@@ -2,19 +2,23 @@ import Day from "./component/Day";
 import DayList from "./component/DayList";
 import Header from "./component/Header";
 import { BrowserRouter, Route, Switch} from "react-router-dom";
+import EmptyPage from "./component/EmptyPage";
 
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter> {/* 앱전체를 감쌈 */}
       <div className="App">
         <Header />
-        <Switch>
+        <Switch> {/* 고정적인 컨텐츠는 스위치 밖에 위치 ex) header, footer */}
           <Route exact path="/">
            <DayList />
           </Route>
-          <Route path="/day">
+          <Route path="/day/:day">
             <Day />
+          </Route>
+          <Route>
+            <EmptyPage />
           </Route>
         </Switch>
       </div>
