@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
+
 import { Link } from 'react-router-dom';
+import useFetch from '../hooks/useFetch';
 
 export default function DayList() {
-    const [days, setDays] = useState([]);
+    const days = useFetch("http://localhost:3001/days");
+   /*  const [days, setDays] = useState([]);
 
     
     useEffect(() => {
@@ -15,7 +17,7 @@ export default function DayList() {
                 console.log(data);
                
             })
-    }, []);//매게변수([]빈배열을 사용하면 랜더링 직수 1회만)가 변경될때만 실행한다 - 의존성배열이라고함 
+    }, []); *///매게변수([]빈배열을 사용하면 랜더링 직수 1회만)가 변경될때만 실행한다 - 의존성배열이라고함 
 
 
     return (
